@@ -1,16 +1,11 @@
 require("babel/register");
 var express = require('express');
 var app = express();
-var data = [
- [1, 3],
- [2, 5],
- [3, 2],
- [4, 16],
- [18, 5]
-];
+var data = require('./scripts/data');
+var svgRenderer = require('./scripts/svg_renderer');
 
 app.get('/svg', function (req, res) {
-  var svg = ...
+  var svg = svgRenderer(data[0]);
   res.send(svg);
 });
 
